@@ -48,7 +48,7 @@ class selfsigncert() {
 			command => "/usr/local/bin/selfsigncert.sh \"${valid_days}\" \"${country}\" ",
 			path    => '/usr/bin:/bin',
 			unless  => 'test -f $key_filename && test -f $pem_filename',
-			require => File["/usr/local/bin/selfsigncert-${domain}.sh"],
+			require => File["/usr/local/bin/selfsigncert.sh"],
 		}
 	}
 
