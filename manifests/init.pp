@@ -19,7 +19,7 @@ class selfsigncert() {
 
 	file{ "/usr/local/bin/selfsigncert.sh" : 
 		ensure  => present,
-		source => 'puppet:///selfsigncert/selfsigncert.sh.erb',
+		source => 'puppet:///selfsigncert/selfsigncert.sh',
 		owner   => root,
 		group   => root,
 		mode    => 500
