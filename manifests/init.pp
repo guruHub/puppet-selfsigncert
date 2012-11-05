@@ -5,7 +5,7 @@
 #
 class selfsigncert() { 
 	
-	package { 'openssl' 
+	package { 'openssl' :
 		ensure => present
 	}
 }
