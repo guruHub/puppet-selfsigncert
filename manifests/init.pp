@@ -5,7 +5,7 @@
 #
 class selfsigncert() { 
 	
-	include selfsignecert::defaults
+	include selfsigncert::defaults
 
 	if $::operatingsystem != 'Debian' {
 		alert("Class selfsigncert was not tested on '${::operatingystem}'")
@@ -18,13 +18,13 @@ class selfsigncert() {
 
 
 	define create(
-		$valid_days   = $::selfsigncert::valid_days,
-		$country      = $::selfsigncert::country,
-		$state        = $::selfsigncert::state,
-		$city         = $::selfsigncert::city,
-		$organization = $::selfsigncert::organization,
-		$section      = $::selfsigncert::section,
-		$workpath     = $::selfsigncert::workpath,
+		$valid_days   = $::selfsigncert::defaults::valid_days,
+		$country      = $::selfsigncert::defaults::country,
+		$state        = $::selfsigncert::defaults::state,
+		$city         = $::selfsigncert::defaults::city,
+		$organization = $::selfsigncert::defaults::organization,
+		$section      = $::selfsigncert::defaults::section,
+		$workpath     = $::selfsigncert::defaults::workpath,
 		$key_filename,
 		$domain,
 		$email
