@@ -25,8 +25,10 @@ selfsigncert::create { "mydomain-example" :
 ```
 
 
+Using it with Nginx
+-------------------
+
 Using the above created certificate with puppet-nginx from https://github.com/jfryman/puppet-nginx
---------------------------------------------------------------------------------------------------
 
 ```
 # Create a website address
