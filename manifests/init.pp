@@ -45,7 +45,7 @@ class selfsigncert() {
 		# 
 		# Run the script to generate the pem file
 		exec{ "selfsign_${name}" :
-			command => "/usr/local/bin/selfsigncert.sh \"${valid_days}\" \"${country}\" ",
+			command => "/usr/local/bin/selfsigncert.sh \"${valid_days}\" \"${country}\" \"${state}\" \"${city}\" \"${organization}\" \"$section\" \"${commonname}\" \"${email}\" \"${key_filename}\" \"${pem_filename}\" ",
 			path    => '/usr/bin:/bin',
 			unless  => "test -f $key_filename && test -f $pem_filename",
 			require => File["/usr/local/bin/selfsigncert.sh"],

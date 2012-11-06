@@ -7,16 +7,17 @@
 
 VALID_DAYS=$1
 COUNTRY=$2
-STATE="MY STATE"
-CITY="MY CITY"
-ORGANIZATION="MY ORGANIZATION"
-SECTION="MY SECTION"
-COMMONNAME="my.com"
-EMAIL="guzman@guruhub.com.uy"
-WORKPATH="/home/beep/openssltest"
+STATE=$3
+CITY=$4
+ORGANIZATION=$5
+SECTION=$6
+COMMONNAME=$7
+EMAIL=$8
+KEY_FILENAME=${10}
+PEM_FILENAME=${11}
 
 # Generate certificate
-openssl req -new -x509 -days ${VALID_DAYS} -nodes -out ${WORKPATH}/cert.pem -keyout ${WORKPATH}/cert.key <<EOF
+openssl req -new -x509 -days ${VALID_DAYS} -nodes -out ${PEM_FILENAME} -keyout ${KEY_FILENAME} <<EOF
 ${COUNTRY}
 ${STATE}
 ${CITY}
