@@ -3,6 +3,9 @@
 #
 # This will create a self signed certificate ready to use on apache/nginx ssl configurations.
 #
+# When using create, if submit non required arguments make sure they are no empty, it will break
+# the script that generate the certs. Script contain safe defaults for every optional argument.
+#
 class selfsigncert() { 
 	
 	include selfsigncert::defaults
@@ -32,7 +35,6 @@ class selfsigncert() {
 		$city         = $::selfsigncert::defaults::city,
 		$organization = $::selfsigncert::defaults::organization,
 		$section      = $::selfsigncert::defaults::section,
-		$workpath     = $::selfsigncert::defaults::workpath,
 		$key_filename,
 		$pem_filename,
 		$domain,
@@ -45,7 +47,7 @@ class selfsigncert() {
 		# 
 		# Run the script to generate the pem file
 		exec{ "selfsign_${name}" :
-			command => "/usr/local/bin/selfsigncert.sh \"${valid_days}\" \"${country}\" \"${state}\" \"${city}\" \"${organization}\" \"$section\" \"${commonname}\" \"${email}\" \"${key_filename}\" \"${pem_filename}\" ",
+			command => "/usr/local/bin/selfsigncert.sh \"${valid_days}\" \"${country}\" \"${state}\" \"${city}\" \"${organization}\" \"$section\" \"${domain}\" \"${email}\" \"${key_filename}\" \"${pem_filename}\" ",
 			path    => '/usr/bin:/bin',
 			unless  => "test -f $key_filename && test -f $pem_filename",
 			require => File["/usr/local/bin/selfsigncert.sh"],
