@@ -13,8 +13,8 @@ ORGANIZATION=$5
 SECTION=$6
 COMMONNAME=$7
 EMAIL=$8
-KEY_FILENAME=${10}
-PEM_FILENAME=${11}
+PEM_FILENAME=${10}
+KEY_FILENAME=${11}
 
 # Generate certificate
 openssl req -new -x509 -days ${VALID_DAYS} -nodes -out ${PEM_FILENAME} -keyout ${KEY_FILENAME} <<EOF
