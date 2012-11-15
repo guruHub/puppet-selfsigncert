@@ -27,4 +27,4 @@ ${COMMONNAME}
 ${EMAIL}
 .
 .
-EOF 2> /dev/null # else puppet will complain returned 1 instead of one of [0] 
+EOF
